@@ -24,6 +24,7 @@ def crawler(page,total):
         print filename
         write_img(filename,item)
         counts=counts+1
+
 def start(page,total):
     while total<60:
         if page>5:
