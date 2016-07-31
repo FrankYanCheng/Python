@@ -1,4 +1,4 @@
-import urllib2
+import urllib3
 import urllib
 import re
 def write_img(filename,imgurl):
