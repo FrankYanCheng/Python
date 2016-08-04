@@ -21,5 +21,6 @@ print "W\r"
 #while True:
     #for i in ["/","-","|","\\","|"]:
         #print "%s\r" % i,
-for i in range(0,100000):
-    print "%r\r" % i,
+while True:
+	for i in range(0,100000):
+    		print "%r\r" % i,
