@@ -4,7 +4,6 @@ This is my version,I want to see how many lines of codes I need~~~
 import re
 import uuid
 
-dicIdWord={}
 #Read the words from the text
 def words_sperate(text):
 	return re.findall('[a-z]+',text.lower())
@@ -31,14 +30,18 @@ def words_dic_init(dic,words):
 #Words dictionary Add for edition_number
 #return dictionay(word,dictionary(originValue,number))
 def words_dic_add(dic,word,originWord):
-	global dicIdWord
-	dicIdWord.setdefault(word,0)
-	
-		
-		
-		
-		
-	
+	if dic.has_key(word):
+		if dic[word].has_key(originWord):
+			dic[word][originWord]=dic[word][originWord]+1
+			
+		else:
+			dic[word][originWord]=1	
+	else:
+		dicValue={}
+		dicValue.setdefault(originWord,1)
+		dic[word]=dicValue	
+		dic.setdefault(word,dicValue)
+
 #Return the edits1 dictionary
 def words_edits1(dic):
 	editsDic={}
@@ -85,17 +88,29 @@ def words_edits1(dic):
 		
 	return editsDic
 
+#return the largest count of the correct word
+def largest(dic,editDic):
+	counts=0
+	word=''
+	for key,value in editDic.items():
+		if counts<value*dic[key]:
+			counts=value
+			word=key
+	arr=[word,counts]
+	return arr
+
 def init(filename):
 	words=read_text(filename)	
 	dic={}
 	words_dic_init(dic,words)
 	editsDicFirst=words_edits1(dic)
-	#editsDicSecond=words_edits1(editsDicFirst)
 	word=raw_input('Please input  alphabet\n')
-	print word
 	if dic.has_key(word):
-		print '%r' ("The word is correct")
+		print "The word is correct"
 	elif editsDicFirst.has_key(word):	
-		print editsDicFirst[word]
+		arr=largest(dic,editsDicFirst[word])
+		print 'correct word may be:%r' % arr[0]
+	else:
+		print 'Not Found'	
 
 init('cut_test.txt')
