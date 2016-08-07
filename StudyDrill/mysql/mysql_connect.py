@@ -1,6 +1,6 @@
 import MySQLdb
 
-conn=MySQLdb.connect(host="localhost",user="root",passwd="fyc6829097",db="python_db",charset="utf8")
+conn=MySQLdb.connect(host="localhost",user="root",passwd="xxxxxxx",db="python_db",charset="utf8")
 cursor=conn.cursor()
 
 #sql="insert into test1_table(id,name) values(%s,%s)"

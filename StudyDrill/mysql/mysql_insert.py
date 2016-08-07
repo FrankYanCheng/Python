@@ -1,7 +1,7 @@
 import MySQLdb
 
 try:
-	conn=MySQLdb.connect(host='localhost',user='root',passwd='fyc6829097')
+	conn=MySQLdb.connect(host='localhost',user='root',passwd='xxxxxx')
 	conn.select_db("python_db")
 	cur=conn.cursor()
 	
