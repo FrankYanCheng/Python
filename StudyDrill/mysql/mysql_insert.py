@@ -1,12 +1,12 @@
 import MySQLdb
 
 try:
-	conn=MySQLdb.connect(host='localhost',user='root',passwd='xxxxxx')
-	conn.select_db("python_db")
+	conn=MySQLdb.connect(host='localhost',user='root',passwd='fyc6829097')
+	conn.select_db("python_web_db")
 	cur=conn.cursor()
 	
-	value=[3,'Roln']
-	cur.execute('insert into test1_table values(%s,%s)',value)
+	value=['title','Roln']
+	cur.execute('insert into test_table(title,content) values(%s,%s)',value)
 	conn.commit()
 	cur.close()
 	conn.close()
