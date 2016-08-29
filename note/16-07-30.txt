@@ -1,4 +1,0 @@
-pprint模块的输出能更加的规则
-数据字典含setdufault(关键字，键值）的方法
-os.listdir(file)列出文件和文件夹
-os.path.splitext(filename)[1]列出该目录下的文件
